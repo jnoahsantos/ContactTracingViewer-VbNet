@@ -1,0 +1,13 @@
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer-VbNet.vbproj.AssemblyReference.cache
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer-VbNet.vbproj.SuggestedBindingRedirects.cache
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer_VbNet.ViewerApp.resources
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer_VbNet.Resources.resources
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer-VbNet.vbproj.GenerateResource.cache
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer-VbNet.vbproj.CoreCompileInputs.cache
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\bin\Debug\ContactTracingViewer-VbNet.exe.config
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\bin\Debug\ContactTracingViewer-VbNet.exe
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\bin\Debug\ContactTracingViewer-VbNet.pdb
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\bin\Debug\ContactTracingViewer-VbNet.xml
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer-VbNet.exe
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer-VbNet.xml
+C:\Users\Computer\Desktop\VB.net\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\ContactTracingViewer-VbNet\obj\Debug\ContactTracingViewer-VbNet.pdb
