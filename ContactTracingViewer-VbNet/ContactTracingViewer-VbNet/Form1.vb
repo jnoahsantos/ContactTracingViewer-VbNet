@@ -1,14 +1,19 @@
 ﻿Imports System.IO
+Imports System.Text.RegularExpressions
+
 
 Public Class ViewerApp
 
     Shared filePathRecords As String = "C:\Users\Computer\Documents\ContactTracing-Logs\"
     Shared files As String() = Directory.GetFiles(filePathRecords)
+    Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
+
 
     Private Sub app_loader(sender As Object, e As EventArgs) Handles MyBase.Load
-        For Each file As String In files
-            Dim filename As String = Path.GetFileName(file)
-            filename = filename.Replace(".txt", "")
+        For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
+            Dim fileNameOnly As String = fi.Name
+            Dim createDate As Date = fi.CreationTime
+            Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
             listBox.Items.Add(filename)
         Next
     End Sub
@@ -29,9 +34,10 @@ Public Class ViewerApp
         labelSearchWarning.Text = ""
         Dim dialogbox1
 
-        For Each file As String In files
-            Dim filename As String = Path.GetFileName(file)
-            filename = filename.Replace(".txt", "")
+        For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
+            Dim fileNameOnly As String = fi.Name
+            Dim createDate As Date = fi.CreationTime
+            Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
             listOfNames.Add(filename)
         Next
 
@@ -77,4 +83,6 @@ Public Class ViewerApp
         End If
 
     End Sub
+
+
 End Class
