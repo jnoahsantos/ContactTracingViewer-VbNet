@@ -27,6 +27,7 @@ Public Class ViewerApp
         Dim keyWord As String = txtBxSearch.Text
         Dim listOfNames As List(Of String) = New List(Of String)()
         labelSearchWarning.Text = ""
+        Dim dialogbox1
 
         For Each file As String In files
             Dim filename As String = Path.GetFileName(file)
@@ -46,7 +47,10 @@ Public Class ViewerApp
             Next
 
             If Not ((listBox.Text).ToLower()).Contains(keyWord.ToLower()) Then
-                MessageBox.Show("Name not found", "Notification")
+                dialogbox1 = MessageBox.Show("Name not found", "Notification", MessageBoxButtons.OK)
+                If dialogbox1 = DialogResult.OK Then
+                    txtBxSearch.Text = " "
+                End If
             End If
         Else
             labelSearchWarning.Location = New Point(170, 106)
@@ -62,11 +66,11 @@ Public Class ViewerApp
             Dim filePath As String = "C:\Users\Computer\Documents\ContactTracing-Logs\" & listBox.Text & ".txt"
             Dim lines As List(Of String) = New List(Of String)()
             lines = File.ReadAllLines(filePath).ToList()
-            MessageBox.Show(ListToString(lines), listBox.Text)
+            MessageBox.Show(ListToString(lines), listBox.Text, MessageBoxButtons.OK)
         Else
             labelSearchWarning.Location = New Point(159, 308)
             labelSearchWarning.Text = "Please select a name"
         End If
-    End Sub
 
+    End Sub
 End Class
