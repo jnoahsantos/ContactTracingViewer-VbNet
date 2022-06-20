@@ -36,12 +36,15 @@ Public Class ViewerApp
             Next
 
             If Not ((listBox.Text).ToLower()).Contains(keyWord.ToLower()) Then
-                MessageBox.Show("Name Not Found", "Notification")
+                MessageBox.Show("Name not found", "Notification")
             End If
         Else
             labelSearchWarning.Location = New Point(170, 106)
-            labelSearchWarning.Text = "Please enter atleast 3 character"
+            labelSearchWarning.Text = "Please enter atleast three characters"
         End If
     End Sub
 
+    Private Sub btnViewData_click(sender As Object, e As EventArgs) Handles btnViewData.Click
+ 
+    End Sub
 End Class
