@@ -10,12 +10,12 @@ Public Class ViewerApp
 
 
     Private Sub app_loader(sender As Object, e As EventArgs) Handles MyBase.Load
-        For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
-            Dim fileNameOnly As String = fi.Name
-            Dim createDate As Date = fi.CreationTime
-            Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
-            listBox.Items.Add(filename)
-        Next
+        If txtBxSearch.Text <> "" Then
+            loader()
+        Else
+            listBox.Items.Clear()
+        End If
+
     End Sub
 
     Private Function ListToString(ByVal lines As List(Of String)) As String
@@ -33,6 +33,8 @@ Public Class ViewerApp
         Dim listOfNames As List(Of String) = New List(Of String)()
         labelSearchWarning.Text = ""
         Dim dialogbox1
+
+        loader()
 
         For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
             Dim fileNameOnly As String = fi.Name
@@ -84,5 +86,13 @@ Public Class ViewerApp
 
     End Sub
 
+    Private Sub loader()
+        For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
+            Dim fileNameOnly As String = fi.Name
+            Dim createDate As Date = fi.CreationTime
+            Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
+            listBox.Items.Add(filename)
+        Next
+    End Sub
 
 End Class
