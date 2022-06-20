@@ -113,6 +113,7 @@ Partial Class ViewerApp
         '
         Me.txtBxSearch.BackColor = System.Drawing.Color.PaleVioletRed
         Me.txtBxSearch.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        Me.txtBxSearch.ForeColor = System.Drawing.Color.Black
         Me.txtBxSearch.Location = New System.Drawing.Point(25, 135)
         Me.txtBxSearch.Name = "txtBxSearch"
         Me.txtBxSearch.Size = New System.Drawing.Size(429, 27)
@@ -137,9 +138,9 @@ Partial Class ViewerApp
         Me.label2.ForeColor = System.Drawing.Color.Black
         Me.label2.Location = New System.Drawing.Point(22, 114)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(109, 18)
+        Me.label2.Size = New System.Drawing.Size(237, 18)
         Me.label2.TabIndex = 13
-        Me.label2.Text = "Search name:"
+        Me.label2.Text = "Search (M/D/YYYY or NAME):"
         '
         'label1
         '
@@ -149,9 +150,9 @@ Partial Class ViewerApp
         Me.label1.ForeColor = System.Drawing.Color.Black
         Me.label1.Location = New System.Drawing.Point(22, 175)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(117, 18)
+        Me.label1.Size = New System.Drawing.Size(147, 18)
         Me.label1.TabIndex = 14
-        Me.label1.Text = "Select a name:"
+        Me.label1.Text = "Choose one below:"
         '
         'ViewerApp
         '

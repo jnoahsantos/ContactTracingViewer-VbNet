@@ -6,7 +6,8 @@ Public Class ViewerApp
 
     Shared filePathRecords As String = "C:\Users\Computer\Documents\ContactTracing-Logs\"
     Shared files As String() = Directory.GetFiles(filePathRecords)
-    Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
+
+    Dim abc As String
 
 
     Private Sub app_loader(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -36,11 +37,14 @@ Public Class ViewerApp
 
         loader()
 
+        Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
         For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
             Dim fileNameOnly As String = fi.Name
             Dim createDate As Date = fi.CreationTime
+            Dim storeData As String = fileNameOnly.Replace(".txt", "")
             Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
             listOfNames.Add(filename)
+            abc = storeData
         Next
 
         Dim arrayOfNames As String() = listOfNames.ToArray()
@@ -55,7 +59,7 @@ Public Class ViewerApp
             Next
 
             If Not ((listBox.Text).ToLower()).Contains(keyWord.ToLower()) Then
-                dialogbox1 = MessageBox.Show("Name not found", "Notification", MessageBoxButtons.OK)
+                dialogbox1 = MessageBox.Show("404 Not found", "Notification", MessageBoxButtons.OK)
                 If dialogbox1 = DialogResult.OK Then
                     txtBxSearch.Text = " "
                 End If
@@ -71,11 +75,11 @@ Public Class ViewerApp
         labelSearchWarning.Text = ""
         Dim dialogbox2
 
-        If listBox.Text <> "" Then
-            Dim filePath As String = "C:\Users\Computer\Documents\ContactTracing-Logs\" & listBox.Text & ".txt"
+        If abc <> "" Then
+            Dim filePath As String = "C:\Users\Computer\Documents\ContactTracing-Logs\" & abc & ".txt"
             Dim lines As List(Of String) = New List(Of String)()
             lines = File.ReadAllLines(filePath).ToList()
-            dialogbox2 = MessageBox.Show(ListToString(lines), listBox.Text, MessageBoxButtons.OK)
+            dialogbox2 = MessageBox.Show(ListToString(lines), abc, MessageBoxButtons.OK)
             If dialogbox2 = DialogResult.OK Then
                 txtBxSearch.Text = " "
             End If
@@ -87,6 +91,7 @@ Public Class ViewerApp
     End Sub
 
     Private Sub loader()
+        Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
         For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
             Dim fileNameOnly As String = fi.Name
             Dim createDate As Date = fi.CreationTime
