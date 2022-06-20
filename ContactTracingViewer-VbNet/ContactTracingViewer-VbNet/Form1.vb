@@ -13,6 +13,16 @@ Public Class ViewerApp
         Next
     End Sub
 
+    Private Function ListToString(ByVal lines As List(Of String)) As String
+        Dim x As String = ""
+
+        For Each line As String In lines
+            x = x & line & vbLf
+        Next
+
+        Return x
+    End Function
+
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim keyWord As String = txtBxSearch.Text
         Dim listOfNames As List(Of String) = New List(Of String)()
@@ -44,7 +54,19 @@ Public Class ViewerApp
         End If
     End Sub
 
+
     Private Sub btnViewData_click(sender As Object, e As EventArgs) Handles btnViewData.Click
- 
+        labelSearchWarning.Text = ""
+
+        If listBox.Text <> "" Then
+            Dim filePath As String = "C:\Users\Computer\Documents\ContactTracing-Logs\" & listBox.Text & ".txt"
+            Dim lines As List(Of String) = New List(Of String)()
+            lines = File.ReadAllLines(filePath).ToList()
+            MessageBox.Show(ListToString(lines), listBox.Text)
+        Else
+            labelSearchWarning.Location = New Point(159, 308)
+            labelSearchWarning.Text = "Please select a name"
+        End If
     End Sub
+
 End Class
