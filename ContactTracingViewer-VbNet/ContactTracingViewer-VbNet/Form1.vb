@@ -7,16 +7,18 @@ Public Class ViewerApp
     Shared filePathRecords As String = "C:\Users\Computer\Documents\ContactTracing-Logs\"
     Shared files As String() = Directory.GetFiles(filePathRecords)
 
-    Dim abc As String
+    Dim abc
+    Dim createDated
 
 
     Private Sub app_loader(sender As Object, e As EventArgs) Handles MyBase.Load
-        If txtBxSearch.Text <> "" Then
-            loader()
-        Else
-            listBox.Items.Clear()
-        End If
-
+        Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
+        For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
+            Dim fileNameOnly As String = fi.Name
+            Dim createDate As Date = fi.CreationTime
+            Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
+            listBox.Items.Add(filename)
+        Next
     End Sub
 
     Private Function ListToString(ByVal lines As List(Of String)) As String
@@ -35,16 +37,13 @@ Public Class ViewerApp
         labelSearchWarning.Text = ""
         Dim dialogbox1
 
-        loader()
-
         Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
         For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
             Dim fileNameOnly As String = fi.Name
-            Dim createDate As Date = fi.CreationTime
+            Dim createDate = fi.CreationTime
             Dim storeData As String = fileNameOnly.Replace(".txt", "")
             Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
             listOfNames.Add(filename)
-            abc = storeData
         Next
 
         Dim arrayOfNames As String() = listOfNames.ToArray()
@@ -55,6 +54,7 @@ Public Class ViewerApp
 
                 If (x.ToLower()).Contains(keyWord.ToLower()) Then
                     listBox.Text = x
+                    abc = listBox.Text
                 End If
             Next
 
@@ -68,15 +68,17 @@ Public Class ViewerApp
             labelSearchWarning.Location = New Point(170, 106)
             labelSearchWarning.Text = "Please enter atleast three characters"
         End If
+
     End Sub
 
 
     Private Sub btnViewData_click(sender As Object, e As EventArgs) Handles btnViewData.Click
         labelSearchWarning.Text = ""
         Dim dialogbox2
+        Dim name = abc.Remove(abc.Length - 22)
 
         If abc <> "" Then
-            Dim filePath As String = "C:\Users\Computer\Documents\ContactTracing-Logs\" & abc & ".txt"
+            Dim filePath As String = "C:\Users\Computer\Documents\ContactTracing-Logs\" & name & ".txt"
             Dim lines As List(Of String) = New List(Of String)()
             lines = File.ReadAllLines(filePath).ToList()
             dialogbox2 = MessageBox.Show(ListToString(lines), abc, MessageBoxButtons.OK)
@@ -89,15 +91,4 @@ Public Class ViewerApp
         End If
 
     End Sub
-
-    Private Sub loader()
-        Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
-        For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
-            Dim fileNameOnly As String = fi.Name
-            Dim createDate As Date = fi.CreationTime
-            Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
-            listBox.Items.Add(filename)
-        Next
-    End Sub
-
 End Class

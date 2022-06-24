@@ -33,6 +33,7 @@ Partial Class ViewerApp
         Me.labelSearchWarning = New System.Windows.Forms.Label()
         Me.label2 = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
+        Me.listBox1 = New System.Windows.Forms.ListBox()
         Me.panel2.SuspendLayout()
         Me.panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -88,6 +89,7 @@ Partial Class ViewerApp
         '
         Me.panel1.BackColor = System.Drawing.Color.PaleVioletRed
         Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.panel1.Controls.Add(Me.listBox1)
         Me.panel1.Controls.Add(Me.labelTitle1)
         Me.panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.panel1.ForeColor = System.Drawing.SystemColors.ControlText
@@ -154,6 +156,19 @@ Partial Class ViewerApp
         Me.label1.TabIndex = 14
         Me.label1.Text = "Choose one below:"
         '
+        'listBox1
+        '
+        Me.listBox1.BackColor = System.Drawing.Color.PaleVioletRed
+        Me.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.listBox1.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        Me.listBox1.ForeColor = System.Drawing.Color.PaleVioletRed
+        Me.listBox1.FormattingEnabled = True
+        Me.listBox1.ItemHeight = 19
+        Me.listBox1.Location = New System.Drawing.Point(556, -1)
+        Me.listBox1.Name = "listBox1"
+        Me.listBox1.Size = New System.Drawing.Size(22, 19)
+        Me.listBox1.TabIndex = 19
+        '
         'ViewerApp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -192,4 +207,5 @@ Partial Class ViewerApp
     Private WithEvents labelSearchWarning As Label
     Private WithEvents label2 As Label
     Private WithEvents label1 As Label
+    Private WithEvents listBox1 As ListBox
 End Class
