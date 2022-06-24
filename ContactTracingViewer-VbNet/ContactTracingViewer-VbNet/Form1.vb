@@ -11,11 +11,12 @@ Public Class ViewerApp
     Dim createDated
 
 
+
     Private Sub app_loader(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
         For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
             Dim fileNameOnly As String = fi.Name
-            Dim createDate As Date = fi.CreationTime
+            Dim createDate = fi.CreationTime.ToString("MM/dd/yyyy hh:mm:ss tt")
             Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
             listBox.Items.Add(filename)
         Next
@@ -40,7 +41,7 @@ Public Class ViewerApp
         Dim di As DirectoryInfo = New DirectoryInfo("C:\Users\Computer\Documents\ContactTracing-Logs\")
         For Each fi In di.GetFiles("*", SearchOption.AllDirectories)
             Dim fileNameOnly As String = fi.Name
-            Dim createDate = fi.CreationTime
+            Dim createDate = fi.CreationTime.ToString("MM/dd/yyyy hh:mm:ss tt")
             Dim storeData As String = fileNameOnly.Replace(".txt", "")
             Dim filename = fileNameOnly.Replace(".txt", " " + createDate)
             listOfNames.Add(filename)
@@ -75,7 +76,8 @@ Public Class ViewerApp
     Private Sub btnViewData_click(sender As Object, e As EventArgs) Handles btnViewData.Click
         labelSearchWarning.Text = ""
         Dim dialogbox2
-        Dim name = abc.Remove(abc.Length - 22)
+        Dim name = abc.Remove(abc.Length - 23)
+
 
         If abc <> "" Then
             Dim filePath As String = "C:\Users\Computer\Documents\ContactTracing-Logs\" & name & ".txt"
